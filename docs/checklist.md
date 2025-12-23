@@ -1,16 +1,18 @@
 # Implementation Checklist
 
 ## Backend (.NET 10)
+
 - [x] Create solution + Web API project.
 - [x] Add models (Car, RegistrationStatus) and in-memory seed data.
-- [ ] Add service that returns cars with optional make filter.
-- [ ] Build `GET /api/cars` endpoint and validate query.
+- [x] Add service that returns cars with optional make filter.
+- [x] Build `GET /api/cars` endpoint and validate query.
 - [ ] Write background service that recalculates registration status on a timer.
 - [ ] Add SignalR hub that pushes live status updates.
 - [ ] Register services, logging, and config in DI container.
 - [ ] Write tests for filtering and expiry logic.
 
 ## Frontend (Vite + React + Tailwind)
+
 - [x] Scaffold Vite React TS app and install Tailwind.
 - [ ] Configure routes for `/` and `/registration`.
 - [ ] Build simple API client and hook data to the home table.
@@ -20,6 +22,7 @@
 - [ ] Add small tests for hooks or components (time permitting).
 
 ## Documentation & Tooling
+
 - [ ] Write README with overview, setup, usage, and requirement mapping.
 - [ ] Capture key architecture notes or future improvements.
 - [ ] Document lint/format commands (ESLint, dotnet format, etc.).
