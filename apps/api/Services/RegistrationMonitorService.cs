@@ -1,3 +1,6 @@
+using FullStackDemo.Api.Hubs;
+using Microsoft.AspNetCore.SignalR;
+
 namespace FullStackDemo.Api.Services;
 
 /// <summary>
@@ -10,13 +13,16 @@ public sealed class RegistrationMonitorService : BackgroundService
 
     private readonly ILogger<RegistrationMonitorService> _logger;
     private readonly RegistrationStatusCalculator _calculator;
+    private readonly IHubContext<RegistrationHub> _hubContext;
 
     public RegistrationMonitorService(
         ILogger<RegistrationMonitorService> logger,
-        RegistrationStatusCalculator calculator)
+        RegistrationStatusCalculator calculator,
+        IHubContext<RegistrationHub> hubContext)
     {
         _logger = logger;
         _calculator = calculator;
+        _hubContext = hubContext;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -25,15 +31,16 @@ public sealed class RegistrationMonitorService : BackgroundService
 
         while (!stoppingToken.IsCancellationRequested)
         {
-            RunCycle();
             _calculator.ToggleExpiryFlag();
+            await RunCycleAsync();
             await Task.Delay(Interval, stoppingToken);
         }
     }
 
-    private void RunCycle()
+    private async Task RunCycleAsync()
     {
         var statuses = _calculator.Calculate();
+        await _hubContext.Clients.All.SendAsync("statusUpdated", statuses);
         _logger.LogInformation("Refreshed {Count} statuses at {Time}", statuses.Count, DateTime.UtcNow);
     }
 }
