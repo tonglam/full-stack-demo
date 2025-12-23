@@ -97,8 +97,8 @@ export default function Registration() {
         </div>
       </div>
 
-      <div className="mt-4 overflow-x-auto rounded-lg border border-slate-200 bg-white shadow-sm">
-        <table className="w-full min-w-[640px] text-left text-sm">
+      <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow">
+        <table className="w-full min-w-[640px] text-left text-sm text-slate-700">
           <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
             <tr>
               <th className="px-4 py-3">Make</th>
@@ -118,20 +118,18 @@ export default function Registration() {
             )}
             {!error && statuses.length === 0 && (
               <tr>
-                <td
-                  colSpan={5}
-                  className="px-4 py-6 text-center text-slate-500"
-                >
+                <td colSpan={5} className="px-4 py-6 text-center text-slate-500">
                   Waiting for live updates...
                 </td>
               </tr>
             )}
             {!error &&
-              statuses.map((status) => (
-                <tr key={status.carId} className="border-t border-slate-100">
-                  <td className="px-4 py-3 font-medium text-slate-900">
-                    {status.make}
-                  </td>
+              statuses.map((status, index) => (
+                <tr
+                  key={status.carId}
+                  className={index % 2 === 0 ? 'border-t border-slate-100 bg-white' : 'border-t border-slate-100 bg-slate-50'}
+                >
+                  <td className="px-4 py-3 font-medium text-slate-900">{status.make}</td>
                   <td className="px-4 py-3">{status.model}</td>
                   <td className="px-4 py-3">
                     <span

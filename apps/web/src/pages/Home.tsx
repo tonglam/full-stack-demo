@@ -51,8 +51,8 @@ export default function Home() {
         </label>
       </div>
 
-      <div className="mt-6 overflow-x-auto rounded-lg border border-slate-200 bg-white shadow-sm">
-        <table className="w-full min-w-[640px] text-left text-sm">
+      <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow">
+        <table className="w-full min-w-[640px] text-left text-sm text-slate-700">
           <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
             <tr>
               <th className="px-4 py-3">Make</th>
@@ -73,25 +73,23 @@ export default function Home() {
             )}
             {!error && cars.length === 0 && (
               <tr>
-                <td
-                  colSpan={6}
-                  className="px-4 py-6 text-center text-slate-500"
-                >
+                <td colSpan={6} className="px-4 py-6 text-center text-slate-500">
                   No cars found.
                 </td>
               </tr>
             )}
             {!error &&
-              cars.map((car) => (
-                <tr key={car.id} className="border-t border-slate-100">
-                  <td className="px-4 py-3 font-medium text-slate-900">
-                    {car.make}
-                  </td>
+              cars.map((car, index) => (
+                <tr
+                  key={car.id}
+                  className={
+                    index % 2 === 0 ? 'border-t border-slate-100 bg-white' : 'border-t border-slate-100 bg-slate-50'
+                  }
+                >
+                  <td className="px-4 py-3 font-medium text-slate-900">{car.make}</td>
                   <td className="px-4 py-3">{car.model}</td>
                   <td className="px-4 py-3">{car.year}</td>
-                  <td className="px-4 py-3 font-mono text-xs text-slate-500">
-                    {car.vin}
-                  </td>
+                  <td className="px-4 py-3 font-mono text-xs text-slate-500">{car.vin}</td>
                   <td className="px-4 py-3">
                     {new Date(car.registrationExpiry).toLocaleDateString('en-AU', {
                       year: 'numeric',
@@ -100,10 +98,10 @@ export default function Home() {
                     })}
                   </td>
                   <td className="px-4 py-3">
-                    {new Date(car.createdAt).toLocaleDateString("en-AU", {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
+                    {new Date(car.createdAt).toLocaleDateString('en-AU', {
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric'
                     })}
                   </td>
                 </tr>
