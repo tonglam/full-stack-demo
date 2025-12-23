@@ -14,9 +14,9 @@
 ## Frontend (Vite + React + Tailwind)
 
 - [x] Scaffold Vite React TS app and install Tailwind.
-- [ ] Configure routes for `/` and `/registration`.
-- [ ] Build simple API client and hook data to the home table.
-- [ ] Add make filter input and optional client-side pagination.
+- [x] Configure routes for `/` and `/registration`.
+- [x] Build simple API client and hook data to the home table.
+- [x] Add make filter input and optional client-side pagination.
 - [ ] Build `/registration` page with SignalR client and live table.
 - [ ] Style tables and status tags with Tailwind.
 - [ ] Add small tests for hooks or components (time permitting).
