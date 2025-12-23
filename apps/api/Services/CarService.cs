@@ -20,7 +20,7 @@ public sealed class CarService : ICarService
         }
 
         return cars
-            .Where(car => car.Make.Equals(make, StringComparison.OrdinalIgnoreCase))
+            .Where(car => car.Make.Contains(make, StringComparison.OrdinalIgnoreCase))
             .ToArray();
     }
 }
