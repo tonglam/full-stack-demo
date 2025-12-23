@@ -51,7 +51,8 @@ npm run dev
 ```
 
 - Vite serves `http://localhost:5173`
-- Proxy is configured so `/api` and `/hubs` forward to the API (no manual CORS setup needed)
+
+**Vist `http://localhost:5173`**
 
 ## Data
 
