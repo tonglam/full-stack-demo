@@ -2,7 +2,7 @@
 
 ## Backend (.NET 10)
 - [x] Create solution + Web API project.
-- [ ] Add models (Car, RegistrationStatus) and in-memory seed data.
+- [x] Add models (Car, RegistrationStatus) and in-memory seed data.
 - [ ] Add service that returns cars with optional make filter.
 - [ ] Build `GET /api/cars` endpoint and validate query.
 - [ ] Write background service that recalculates registration status on a timer.
