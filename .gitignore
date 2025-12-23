@@ -41,6 +41,12 @@ ScaffoldingReadMe.txt
 *~
 CodeCoverage/
 
+# Node / frontend artifacts
+node_modules/
+dist/
+*.log
+.env*
+
 # MSBuild Binary and Structured Log
 *.binlog
 

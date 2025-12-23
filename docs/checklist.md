@@ -1,7 +1,7 @@
 # Implementation Checklist
 
 ## Backend (.NET 10)
-- [ ] Create solution + Web API project.
+- [x] Create solution + Web API project.
 - [ ] Add models (Car, RegistrationStatus) and in-memory seed data.
 - [ ] Add service that returns cars with optional make filter.
 - [ ] Build `GET /api/cars` endpoint and validate query.
@@ -11,7 +11,7 @@
 - [ ] Write tests for filtering and expiry logic.
 
 ## Frontend (Vite + React + Tailwind)
-- [ ] Scaffold Vite React TS app and install Tailwind.
+- [x] Scaffold Vite React TS app and install Tailwind.
 - [ ] Configure routes for `/` and `/registration`.
 - [ ] Build simple API client and hook data to the home table.
 - [ ] Add make filter input and optional client-side pagination.
