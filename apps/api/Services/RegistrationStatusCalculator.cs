@@ -30,7 +30,13 @@ public sealed class RegistrationStatusCalculator
                     expired = !expired;
                 }
 
-                return new RegistrationStatus(car.Id, expired, car.RegistrationExpiry, now);
+                return new RegistrationStatus(
+                    car.Id,
+                    car.Make,
+                    car.Model,
+                    expired,
+                    car.RegistrationExpiry,
+                    now);
             })
             .ToArray();
     }

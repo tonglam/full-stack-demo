@@ -9,7 +9,7 @@ namespace FullStackDemo.Api.Services;
 /// </summary>
 public sealed class RegistrationMonitorService : BackgroundService
 {
-    private static readonly TimeSpan Interval = TimeSpan.FromSeconds(15);
+    private static readonly TimeSpan Interval = TimeSpan.FromSeconds(5);
 
     private readonly ILogger<RegistrationMonitorService> _logger;
     private readonly RegistrationStatusCalculator _calculator;

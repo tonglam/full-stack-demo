@@ -1,23 +1,28 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { Car } from '../types'
-
-const API_BASE = import.meta.env.VITE_API_URL ?? 'http://localhost:5000'
+import { buildApiUrl } from '../config'
 
 export default function Home() {
   const [cars, setCars] = useState<Car[]>([])
   const [error, setError] = useState<string | null>(null)
   const [makeFilter, setMakeFilter] = useState('')
-  const [activeFilter, setActiveFilter] = useState('')
 
   const query = useMemo(() => {
     const params = new URLSearchParams()
-    if (activeFilter) params.append('make', activeFilter)
+    if (makeFilter.trim()) params.append('make', makeFilter.trim())
     const str = params.toString()
     return str ? `?${str}` : ''
-  }, [activeFilter])
+  }, [makeFilter])
+
+  const lastFetchedQuery = useRef<string | null>(null)
 
   useEffect(() => {
-    fetch(`${API_BASE}/api/cars${query}`)
+    if (lastFetchedQuery.current === query) {
+      return
+    }
+    lastFetchedQuery.current = query
+
+    fetch(buildApiUrl(`/api/cars${query}`))
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch cars')
         return res.json()
@@ -28,18 +33,13 @@ export default function Home() {
       })
       .catch((err: Error) => {
         setError(err.message)
+        lastFetchedQuery.current = null
       })
   }, [query])
 
   return (
     <section>
-      <form
-        className="mb-4 flex items-center justify-end gap-2 text-sm"
-        onSubmit={(e) => {
-          e.preventDefault()
-          setActiveFilter(makeFilter.trim())
-        }}
-      >
+      <div className="mb-4 flex items-center justify-end text-sm">
         <label className="flex flex-col text-sm text-slate-600">
           Search by make
           <input
@@ -49,25 +49,7 @@ export default function Home() {
             className="w-64 rounded-md border border-slate-300 px-3 py-2 text-slate-900 focus:border-blue-500 focus:outline-none"
           />
         </label>
-        <button
-          type="submit"
-          className="mt-6 rounded-md bg-blue-600 px-3 py-2 font-medium text-white hover:bg-blue-700"
-        >
-          Apply
-        </button>
-        {activeFilter && (
-          <button
-            type="button"
-            onClick={() => {
-              setMakeFilter('')
-              setActiveFilter('')
-            }}
-            className="mt-6 rounded-md border border-slate-300 px-3 py-2 font-medium text-slate-700"
-          >
-            Clear
-          </button>
-        )}
-      </form>
+      </div>
 
       <div className="mt-6 overflow-x-auto rounded-lg border border-slate-200 bg-white shadow-sm">
         <table className="w-full min-w-[640px] text-left text-sm">

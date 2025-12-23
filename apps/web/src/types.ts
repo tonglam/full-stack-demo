@@ -7,3 +7,12 @@ export type Car = {
   registrationExpiry: string
   createdAt: string
 }
+
+export type RegistrationStatus = {
+  carId: string
+  isExpired: boolean
+  expiresOn: string
+  checkedAt: string
+  make: string
+  model: string
+}
