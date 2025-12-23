@@ -9,7 +9,7 @@
 - [x] Write background service that recalculates registration status on a timer.
 - [x] Add SignalR hub that pushes live status updates.
 - [x] Register services, logging, and config in DI container.
-- [ ] Write tests for filtering and expiry logic.
+- [x] Write tests for filtering and expiry logic.
 
 ## Frontend (Vite + React + Tailwind CSS)
 
@@ -18,8 +18,8 @@
 - [x] Build simple API client and hook data to the home table.
 - [x] Add make filter input and optional client-side pagination.
 - [x] Build `/registration` page with SignalR client and live table.
-- [ ] Style tables and status tags with Tailwind CSS.
-- [ ] Add small tests for hooks or components (time permitting).
+- [x] Style tables and status tags with Tailwind CSS.
+- [x] Add small tests for hooks or components (time permitting).
 
 ## Documentation & Tooling
 

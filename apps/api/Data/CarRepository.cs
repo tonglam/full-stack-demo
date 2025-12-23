@@ -7,7 +7,7 @@ namespace FullStackDemo.Api.Data;
 /// </summary>
 public static class CarRepository
 {
-    public static IReadOnlyList<Car> Cars { get; } =
+    private static List<Car> _cars =
     [
         new(
             Guid.Parse("6a8c8eca-9c57-42af-8aa2-4b091df2d212"),
@@ -64,4 +64,11 @@ public static class CarRepository
             DateTime.UtcNow.AddMonths(-3)
         )
     ];
+
+    public static IReadOnlyList<Car> Cars => _cars;
+
+    public static void SetCars(IReadOnlyList<Car> cars)
+    {
+        _cars = cars.ToList();
+    }
 }
