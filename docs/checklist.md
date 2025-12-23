@@ -6,7 +6,7 @@
 - [x] Add models (Car, RegistrationStatus) and in-memory seed data.
 - [x] Add service that returns cars with optional make filter.
 - [x] Build `GET /api/cars` endpoint and validate query.
-- [ ] Write background service that recalculates registration status on a timer.
+- [x] Write background service that recalculates registration status on a timer.
 - [ ] Add SignalR hub that pushes live status updates.
 - [ ] Register services, logging, and config in DI container.
 - [ ] Write tests for filtering and expiry logic.

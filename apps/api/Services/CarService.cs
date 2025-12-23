@@ -4,8 +4,7 @@ using FullStackDemo.Api.Models;
 namespace FullStackDemo.Api.Services;
 
 /// <summary>
-/// Reads car data from the repository, sorts by creation time, and applies the make filter when present.
-/// Returns the cars in descending order of creation time.
+/// Returns seeded cars sorted by creation date, with optional make filtering.
 /// </summary>
 public sealed class CarService : ICarService
 {

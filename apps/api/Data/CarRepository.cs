@@ -7,7 +7,7 @@ namespace FullStackDemo.Api.Data;
 /// </summary>
 public static class CarRepository
 {
-    private static readonly IReadOnlyList<Car> CarsInternal =
+    public static IReadOnlyList<Car> Cars { get; } =
     [
         new(
             Guid.Parse("6a8c8eca-9c57-42af-8aa2-4b091df2d212"),
@@ -15,7 +15,7 @@ public static class CarRepository
             "Corolla",
             2018,
             "1HGBH41JXMN109186",
-            DateOnly.FromDateTime(DateTime.UtcNow.AddMonths(6)),
+            DateOnly.FromDateTime(DateTime.UtcNow.AddDays(-2)),
             DateTime.UtcNow.AddMonths(-2)
         ),
         new(
@@ -24,7 +24,7 @@ public static class CarRepository
             "Civic",
             2017,
             "1HGBH41JXMN209999",
-            DateOnly.FromDateTime(DateTime.UtcNow.AddDays(-20)),
+            DateOnly.FromDateTime(DateTime.UtcNow.AddDays(1)),
             DateTime.UtcNow.AddMonths(-5)
         ),
         new(
@@ -33,7 +33,7 @@ public static class CarRepository
             "Focus",
             2020,
             "1HGBH41JXMN309111",
-            DateOnly.FromDateTime(DateTime.UtcNow.AddDays(40)),
+            DateOnly.FromDateTime(DateTime.UtcNow.AddDays(-10)),
             DateTime.UtcNow.AddMonths(-1)
         ),
         new(
@@ -42,10 +42,26 @@ public static class CarRepository
             "Model 3",
             2022,
             "5YJ3E1EA7KF317000",
-            DateOnly.FromDateTime(DateTime.UtcNow.AddDays(5)),
+            DateOnly.FromDateTime(DateTime.UtcNow.AddDays(20)),
             DateTime.UtcNow.AddDays(-10)
+        ),
+        new(
+            Guid.Parse("f2c5a4f1-6b99-42f3-9c4b-1a9a2f3f6c4c"),
+            "BMW",
+            "330i",
+            2019,
+            "WBA8E9G53GNU12345",
+            DateOnly.FromDateTime(DateTime.UtcNow.AddDays(60)),
+            DateTime.UtcNow.AddMonths(-7)
+        ),
+        new(
+            Guid.Parse("de93a9b9-6d65-4a21-aafc-2b7685e6b1aa"),
+            "Audi",
+            "A4",
+            2021,
+            "WAUAFAFL2EN012345",
+            DateOnly.FromDateTime(DateTime.UtcNow.AddDays(-1)),
+            DateTime.UtcNow.AddMonths(-3)
         )
     ];
-
-    public static IReadOnlyList<Car> Cars => CarsInternal;
 }
