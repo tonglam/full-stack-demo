@@ -7,6 +7,7 @@ import {
 import { useEffect, useState } from "react";
 import type { RegistrationStatus } from "../types";
 
+// Shared module-level connection so reconnect state persists across mounts.
 let sharedConnection: HubConnection | null = null;
 let startingConnection = false;
 

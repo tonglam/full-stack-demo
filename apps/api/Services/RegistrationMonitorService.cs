@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.SignalR;
 namespace FullStackDemo.Api.Services;
 
 /// <summary>
-/// Background worker that recalculates registration statuses every 15 seconds
+/// Background worker that recalculates registration statuses every 5 seconds
 /// so other components (e.g., SignalR hub/controllers) can read fresh data.
 /// </summary>
 public sealed class RegistrationMonitorService : BackgroundService

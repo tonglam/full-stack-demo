@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import type { Car } from '../types'
 import { buildApiUrl } from '../config'
 
@@ -14,14 +14,7 @@ export default function Home() {
     return str ? `?${str}` : ''
   }, [makeFilter])
 
-  const lastFetchedQuery = useRef<string | null>(null)
-
   useEffect(() => {
-    if (lastFetchedQuery.current === query) {
-      return
-    }
-    lastFetchedQuery.current = query
-
     fetch(buildApiUrl(`/api/cars${query}`))
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch cars')
@@ -33,7 +26,6 @@ export default function Home() {
       })
       .catch((err: Error) => {
         setError(err.message)
-        lastFetchedQuery.current = null
       })
   }, [query])
 
