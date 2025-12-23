@@ -23,7 +23,6 @@
 
 ## Documentation & Tooling
 
-- [ ] Write README with overview, setup, usage, and requirement mapping.
-- [ ] Capture key architecture notes or future improvements.
-- [ ] Document lint/format commands (ESLint, dotnet format, etc.).
-- [ ] Prepare final checklist (tests, lint, run instructions).
+- [x] Write README with overview, setup, usage, and requirement mapping.
+- [x] Capture key architecture notes or future improvements.
+- [x] Document lint/format commands (ESLint, dotnet format, etc.).
