@@ -13,6 +13,8 @@
 ## RegistrationStatus
 
 - `carId`: UUID string referencing the related car.
+- `make`: string for the manufacturer.
+- `model`: string for the model name.
 - `isExpired`: boolean indicating whether the registration is past expiry.
 - `expiresOn`: ISO date string (UTC), mirrors the car's `registrationExpiry`.
 - `checkedAt`: ISO datetime string marking when the background job evaluated the status.

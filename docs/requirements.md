@@ -14,7 +14,7 @@
 
 ## Data & Storage
 
-- Mock data stored in-memory as JSON seed; no external DB required.
+- Mock data stored in-memory via a seeded list; no external DB required.
 - Services share simple in-memory collections.
 
 ## Technology Constraints

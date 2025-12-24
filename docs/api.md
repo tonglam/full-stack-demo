@@ -3,7 +3,7 @@
 ## GET /api/cars
 - Returns all cars as a JSON array.
 - Query params:
-  - `make` (optional, string) – filters cars by exact make (case-insensitive).
+  - `make` (optional, string) – filters cars by partial make match (case-insensitive).
 - Response sample:
 ```json
 [
@@ -19,29 +19,17 @@
 ]
 ```
 
-## GET /api/registrations
-- Returns current registration status for all cars.
-- Response sample:
-```json
-[
-  {
-    "carId": "6a8c8eca-9c57-42af-8aa2-4b091df2d212",
-    "isExpired": false,
-    "expiresOn": "2025-05-01",
-    "checkedAt": "2024-05-25T12:00:00Z"
-  }
-]
-```
-
 ## SignalR Hub /hubs/registration
 - Method: WebSocket (SignalR) connection for live updates.
 - Events:
-  - `RegistrationStatusUpdated`: sends array of registration status payloads.
+  - `statusUpdated`: sends array of registration status payloads.
 - Payload sample:
 ```json
 [
   {
     "carId": "6a8c8eca-9c57-42af-8aa2-4b091df2d212",
+    "make": "Toyota",
+    "model": "Corolla",
     "isExpired": false,
     "expiresOn": "2025-05-01",
     "checkedAt": "2024-05-25T12:00:00Z"

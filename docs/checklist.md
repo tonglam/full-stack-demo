@@ -16,7 +16,7 @@
 - [x] Scaffold Vite React TS app and install Tailwind CSS.
 - [x] Configure routes for `/` and `/registration`.
 - [x] Build simple API client and hook data to the home table.
-- [x] Add make filter input and optional client-side pagination.
+- [x] Add make filter input.
 - [x] Build `/registration` page with SignalR client and live table.
 - [x] Style tables and status tags with Tailwind CSS.
 - [x] Add small tests for hooks or components (time permitting).
@@ -25,4 +25,4 @@
 
 - [x] Write README with overview, setup, usage, and requirement mapping.
 - [x] Capture key architecture notes or future improvements.
-- [x] Document lint/format commands (ESLint, dotnet format, etc.).
+- [x] Document lint/test commands (ESLint, dotnet test).
